@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:intl/intl.dart';
+import '../services/notification_service.dart';
 
 class SettingsScreen extends StatefulWidget {
   @override
@@ -29,6 +30,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setInt('notification_hour', _selectedTime.hour);
     await prefs.setInt('notification_minute', _selectedTime.minute);
+
+    final message = 'No olvides registrar tu nivel de glucosa hoy';
+    await NotificationService().scheduleDailyReminder(_selectedTime, message);
+
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('Configuración guardada')),
     );
