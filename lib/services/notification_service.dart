@@ -62,3 +62,37 @@ class NotificationService {
     return scheduledDate;
   }
 }
+Future<void> scheduleDailyReminder(TimeOfDay time, String message) async {
+  final androidDetails = AndroidNotificationDetails(
+    'daily_reminder_channel',
+    'Daily Reminder',
+    channelDescription: 'Recordatorio diario inteligente',
+    importance: Importance.max,
+    priority: Priority.high,
+  );
+
+  final notificationDetails = NotificationDetails(android: androidDetails);
+
+  final now = DateTime.now();
+  final scheduledTime = DateTime(
+    now.year,
+    now.month,
+    now.day,
+    time.hour,
+    time.minute,
+  );
+
+  await flutterLocalNotificationsPlugin.zonedSchedule(
+    1,
+    'Recordatorio',
+    message,
+    tz.TZDateTime.from(scheduledTime, tz.local).isBefore(tz.TZDateTime.now(tz.local))
+        ? tz.TZDateTime.from(scheduledTime.add(Duration(days: 1)), tz.local)
+        : tz.TZDateTime.from(scheduledTime, tz.local),
+    notificationDetails,
+    androidAllowWhileIdle: true,
+    uiLocalNotificationDateInterpretation:
+        UILocalNotificationDateInterpretation.absoluteTime,
+    matchDateTimeComponents: DateTimeComponents.time,
+  );
+}
