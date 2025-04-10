@@ -1,20 +1,23 @@
 android {
-    compileSdkVersion 34
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "com.ejemplo.appparadiabeticos"
         minSdkVersion 21
-        targetSdkVersion 34
+        targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+    buildTypes {
+        release {
+            shrinkResources false
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+        }
     }
 }
 
-dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+flutter {
+    source '../..'
 }
