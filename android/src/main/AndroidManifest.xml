@@ -2,8 +2,7 @@
     package="com.ejemplo.appparadiabeticos">
 
     <application
-        android:name="${applicationName}"
-        android:label="Aplicación para Diabéticos"
+        android:label="Aplicación para diabéticos"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true">
         <activity
@@ -11,26 +10,16 @@
             android:exported="true"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="flutterEmbedding"
-                android:value="2" />
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
-        <!-- Notificación -->
-        <receiver android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver"
-            android:exported="false"/>
-        <receiver android:name="com.dexterous.flutterlocalnotifications.NotificationReceiver"
-            android:exported="false"/>
-        <service android:name="com.dexterous.flutterlocalnotifications.ForegroundService"
-            android:foregroundServiceType="mediaPlayback"
-            android:exported="false"/>
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2"/>
     </application>
-
 </manifest>
