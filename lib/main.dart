@@ -12,7 +12,7 @@ import 'package:diabetes_habits_app/services/notification_service.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await NotificationService().init(); // Inicializar notificaciones
-  runApp(const DiabetesHabitsApp());
+  
   SharedPreferences prefs = await SharedPreferences.getInstance();
 int? hour = prefs.getInt('notification_hour');
 int? minute = prefs.getInt('notification_minute');
@@ -23,6 +23,7 @@ if (hour != null && minute != null) {
     'No olvides registrar tu nivel de glucosa hoy.',
   );
 }
+  runApp(const DiabetesHabitsApp());
 }
 
 class DiabetesHabitsApp extends StatelessWidget {
