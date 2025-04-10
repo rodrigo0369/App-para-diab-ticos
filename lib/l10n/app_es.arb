@@ -1,0 +1,10 @@
+{
+  "@@locale": "es",
+  "appTitle": "App de Hábitos para Diabetes",
+  "settings": "Configuración",
+  "habits": "Hábitos",
+  "registerGlucose": "Registrar Glucosa",
+  "glucoseAlertHigh": "¡Tu nivel de glucosa es muy alto!",
+  "glucoseAlertLow": "¡Tu nivel de glucosa es muy bajo!",
+  "completedHabitsToday": "Hábitos completados hoy"
+}
