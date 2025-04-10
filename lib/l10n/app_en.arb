@@ -1,0 +1,10 @@
+{
+  "@@locale": "en",
+  "appTitle": "Diabetes Habits App",
+  "settings": "Settings",
+  "habits": "Habits",
+  "registerGlucose": "Register Glucose",
+  "glucoseAlertHigh": "Your glucose level is too high!",
+  "glucoseAlertLow": "Your glucose level is too low!",
+  "completedHabitsToday": "Habits completed today"
+}
