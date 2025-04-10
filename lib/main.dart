@@ -13,6 +13,16 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await NotificationService().init(); // Inicializar notificaciones
   runApp(const DiabetesHabitsApp());
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+int? hour = prefs.getInt('notification_hour');
+int? minute = prefs.getInt('notification_minute');
+
+if (hour != null && minute != null) {
+  await scheduleDailyReminder(
+    TimeOfDay(hour: hour, minute: minute),
+    'No olvides registrar tu nivel de glucosa hoy.',
+  );
+}
 }
 
 class DiabetesHabitsApp extends StatelessWidget {
