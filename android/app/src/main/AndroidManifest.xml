@@ -1,13 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ejemplo.appparadiabeticos">
 
-    <application
-        android:label="Aplicación para diabéticos"
+   <application
+        android:name="${applicationName}"
+        android:label="Aplicación para Diabéticos"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true">
-        
         <activity
-            android:name="com.ejemplo.appparadiabeticos.MainActivity"
+            android:name=".MainActivity"
             android:exported="true"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
@@ -19,10 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
-
 </manifest>
