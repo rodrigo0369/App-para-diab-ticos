@@ -3,21 +3,21 @@ apply plugin: 'kotlin-android'
 apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdkVersion 33
+    namespace "com.ejemplo.appparadiabeticos"
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.ejemplo.appparadiabeticos"
-        minSdkVersion 21
-        targetSdkVersion 33
+        minSdk 21
+        targetSdk 33
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
-        multiDexEnabled true
     }
 
     buildTypes {
         release {
-            shrinkResources false
             minifyEnabled false
+            shrinkResources false
             signingConfig signingConfigs.debug
         }
     }
